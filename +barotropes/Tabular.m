@@ -16,7 +16,6 @@ classdef Tabular < barotropes.Barotrope
     methods
         function obj = Tabular(P, rho, intm, extm)
             if (nargin == 0)
-                if nargout > 0, return, end
                 print_usage()
                 clear obj
                 return
@@ -61,8 +60,8 @@ end
 function print_usage()
 fprintf('Usage: barotropes.tabular(P, rho, intm, extm)\n')
 fprintf('positional arguments:\n')
-fprintf('  P    a vector of pressure values [ real nonnegative ]\n')
-fprintf('  rho  a vector of density values [ real nonnegative ]\n')
+fprintf('  P    vector of pressure values [ real nonnegative ]\n')
+fprintf('  rho  vector of density values [ real nonnegative ]\n')
 fprintf('  intm (optional) interpolation method [ {''linear''} | ''nearest'' | ''spline'' | ''pchip'' ]\n')
 fprintf('  extm (optional) extrapolation strategy [ {''extrap''} | scalar value | NaN ]\n')
 end
