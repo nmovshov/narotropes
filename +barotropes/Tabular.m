@@ -16,6 +16,7 @@ classdef Tabular < barotropes.Barotrope
     methods
         function obj = Tabular(P, rho, intm, extm)
             if (nargin == 0)
+                if nargout > 0, return, end
                 print_usage()
                 clear obj
                 return
