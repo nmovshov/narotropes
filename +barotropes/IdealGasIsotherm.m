@@ -43,4 +43,3 @@ classdef IdealGasIsotherm < barotropes.Barotrope
     end
     
 end
-
