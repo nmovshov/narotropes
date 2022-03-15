@@ -29,7 +29,8 @@ classdef IdealMix < barotropes.Barotrope
         
         function P = pressure(obj,rho)
             % Mix pressure by Dalton's law.
-            P = 0;
+            assert(isvector(rho));
+            P = zeros(size(rho));
             for k=1:length(obj.mrats)
                 P = P + obj.EOSs(k).pressure(rho)*obj.mrats(k);
             end
@@ -37,11 +38,12 @@ classdef IdealMix < barotropes.Barotrope
         
         function rho = density(obj,P)
             % Mix density by Amagat's law.
-            invrho = 0;
+            assert(isvector(P));
+            invrho = zeros(size(P));
             for k=1:length(obj.mrats)
-                invrho = invrho + obj.mrats(k)/obj.EOSs(k).density(P);
+                invrho = invrho + obj.mrats(k)./obj.EOSs(k).density(P);
             end
-            rho = 1/invrho;
+            rho = 1./invrho;
         end
     end
     
